@@ -5,10 +5,10 @@ const buttonJoke = document.getElementById("btnJoke");
 const textJoke = document.getElementById("txtJoke");
 
 buttonJoke.addEventListener("click", () => {
-  getTodos();
+  getJoke();
 });
 
-async function getTodos() {
+async function getJoke() {
   const res = await fetch("https://icanhazdadjoke.com", {
     headers: {
       Accept: "application/json",
@@ -23,4 +23,4 @@ async function getTodos() {
 }
 
 //1ο αστείο
-getTodos();
+getJoke();
