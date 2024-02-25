@@ -9,16 +9,18 @@ buttonJoke.addEventListener("click", () => {
 });
 
 async function getJoke() {
-  const res = await fetch("https://icanhazdadjoke.com", {
-    headers: {
-      Accept: "application/json",
-    },
-  });
-  const resJSON = await res.json();
-  if (resJSON.status === 200) {
+  try {
+    const res = await fetch("https://icanhazdadjoke.com", {
+      headers: {
+        Accept: "application/json",
+      },
+    });
+
+    const resJSON = await res.json();
     textJoke.textContent = resJSON.joke;
-  } else {
-    textJoke.textContent = "Error retrieving joke!";
+  } catch (error) {
+    console.error("Error retrieving joke:", error);
+    textJoke.textContent = "Error retrieving joke.";
   }
 }
 
